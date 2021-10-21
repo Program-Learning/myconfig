@@ -92,7 +92,7 @@ set inccommand=split
 set ttyfast "should make scrolling faster
 set lazyredraw "same as above
 set regexpengine=1
-set visualbell
+"set visualbell
 silent !mkdir -p ~/.config/nvim/tmp/backup
 silent !mkdir -p ~/.config/nvim/tmp/undo
 set backupdir=~/.config/nvim/tmp/backup,.
@@ -105,6 +105,81 @@ set colorcolumn=80
 set updatetime=100
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+
+"===
+"=== Myr's settings
+"===
+
+filetype plugin on
+" 设置为双字宽显示(会影响界面渲染，所以关掉)
+" set ambiwidth=double
+" 防止vim背景颜色错误(现在没有这个问题)
+" set t_ut=
+" 高亮匹配括号
+set showmatch
+" 匹配括号显示时间
+set matchtime=1
+" 不占用最后的一个cmd框显示现在的模式
+set noshowmode
+" 取消警告声音
+set novisualbell
+set noerrorbells
+set report=0
+" 搜索不区分大小写
+set ignorecase
+set nobackup
+set autoread
+set nocompatible
+set backspace=2 "能使用backspace回删
+set showcmd
+set hlsearch
+syntax on "语法检测
+
+" Tab settings
+set ts=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" indent method
+" set cindent
+set smartindent
+
+" Set Mouse
+" set mouse=a
+" set selection=exclusive
+" set selectmode=mouse,key
+
+set history=1000 "设置历史记录条数
+" close welcome page
+set shortmess=atI
+set clipboard+=unnamed
+
+" VIM Encoding Method
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936,latin1
+set fileencoding=gb2312
+set termencoding=utf-8
+
+set signcolumn=yes
+set cmdheight=1
+set ruler
+set nu
+set cursorline
+
+" reset cursor when vim exits
+" au VimLeave * set guicursor=a:ver25-blinkon0
+set foldmethod=indent " 设置默认折叠方式为缩进
+set foldlevelstart=99 " 每次打开文件时关闭折叠
+
+" coc.nvim settings
+set hidden
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+
+" Line Settings
+set wrap
 
 " ===
 " === Terminal Behaviors
@@ -323,7 +398,22 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'wincent/terminus'
 Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
+" Mayuri's 
+Plug 'crusoexia/vim-monokai'"
 
+Plug 'bfrg/vim-cpp-modern'"
+Plug 'tpope/vim-fugitive'"
+Plug 'vim-python/python-syntax'"
+Plug 'vim-scripts/ctags.vim'"
+Plug 'tmux-plugins/vim-tmux-focus-events'"
+Plug 'octol/vim-cpp-enhanced-highlight'"
+Plug 'sainnhe/gruvbox-material'"
+Plug 'Yggdroot/indentLine'"
+Plug 'preservim/nerdtree'"
+Plug 'Xuyuanp/nerdtree-git-plugin'"
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'majutsushi/tagbar'"
+" Plug 'morhetz/gruvbox'
 call plug#end()
 call glaive#Install()
 
@@ -358,6 +448,7 @@ let g:airline_theme='dracula'
 "let g:airline_theme='tender'
 "let g:airline_theme='sonokai'
 "let g:airline_theme='snazzy'
+"let g:airline_theme = 'gruvbox_material'
 
 
 " ===
@@ -473,11 +564,59 @@ let g:VM_maps["Undo"]               = '<C-u>'
 let g:VM_maps["Redo"]               = '<C-r>'
 
 
-" ===
-" === Nerdcommenter
-" ===
+
+" +===============================NERD Commenter ====================================+ "
+"add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+au FileType python let g:NERDSpaceDelims = 0
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:cpp_simple_highlight = 1
+
+
+" +================================== NERDTree =======================================+ "
+" autocmd vimenter * NERDTree  "自动开启Nerdtree
+let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
+let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
+"打开vim时如果没有文件自动打开NERDTree
+autocmd vimenter * if !argc()|NERDTree|endif
+"当NERDTree为剩下的唯一窗口时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" 设置树的显示图标
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
+let NERDTreeIgnore = ['\.pyc$']  " 过滤所有.pyc文件不显示
+let g:NERDTreeShowLineNumbers=0 " 是否显示行号
+let g:NERDTreeHidden=1     "不显示隐藏文件
+""Making it prettier
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" autocmd vimenter *  NERDTreeToggle
 
 " ===
 " === LazyGit
