@@ -255,10 +255,10 @@ noremap sk <C-w>k
 noremap sj <C-w>j
 noremap sh <C-w>h
 noremap sl <C-w>l
-noremap <Up> :res +5<CR>
-noremap <Down> :res -5<CR>
-noremap <Left> :vertical resize-5<CR>
-noremap <Right> :vertical resize+5<CR>
+"noremap <Up> :res +5<CR>
+"noremap <Down> :res -5<CR>
+"noremap <Left> :vertical resize-5<CR>
+"noremap <Right> :vertical resize+5<CR>
 " tab management
 noremap stt :tabe<CR>
 noremap sth :-tabnext<CR>
