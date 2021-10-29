@@ -1,4 +1,4 @@
-# Mayuri ×ÔÓÃ(bushi)
->²¿·Ö³­×ÔÍøÂç
+  # Mayuri è‡ªç”¨(bushi)
+  >éƒ¨åˆ†æŠ„è‡ªç½‘ç»œ
 
-²Î¿¼:[the_lowest_level](https://gitee.com/the_lowest_level/nvim)
+  å‚è€ƒ:[the_lowest_level](https://gitee.com/the_lowest_level/nvim)  
