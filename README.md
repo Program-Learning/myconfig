@@ -1,4 +1,4 @@
-  # Mayuri 自用(bushi)
-  >部分抄自网络
+  # Mayuri private(x)
+  > From the Internet
 
-  参考:[the_lowest_level](https://gitee.com/the_lowest_level/nvim)  
+  Thanks to :[the_lowest_level](https://gitee.com/the_lowest_level/nvim)  
