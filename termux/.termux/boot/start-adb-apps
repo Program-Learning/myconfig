@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/sh
+su -c sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh
+su -c sh /data/data/me.piebridge.brevent/brevent.sh
