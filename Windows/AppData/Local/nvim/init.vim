@@ -1,11 +1,13 @@
 " set nocompatible " 关闭兼容模式
 " filetype off " 关闭自动补全
+"set showmode
+set relativenumber
 set number " 打开行号设置
 set encoding=utf-8
 set ruler " 光标信息
 set hlsearch " 高亮显示搜索
 set incsearch " 边搜索边高亮
-set ignorecase " 忽略大小写
+set ignorecase " 忽悠大小写
 set cursorline " 突出当前显示行
 
 set ts=4 " tab 占4个字符宽度 
@@ -33,7 +35,6 @@ set background=dark
 " 最后加载 gruvbox 主题
 autocmd vimenter * colorscheme gruvbox
 
-
 let g:airline_theme='one'
 " 取消备份
 set nobackup
@@ -59,8 +60,8 @@ set backspace=2
 call plug#begin('~/.vim/plugged')
 
 " vim 状态栏
-Plug 'vim-airline/vim-airline'
 Plug 'github/copilot.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " 左侧导航目录
@@ -101,6 +102,7 @@ Plug 'morhetz/gruvbox'
 " 可以在导航目录中看到 git 版本信息
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+
 " 自动补全括号的插件，包括小括号，中括号，以及花括号
 " Plug 'jiangmiao/auto-pairs'
 
@@ -130,8 +132,22 @@ call plug#end()
 "==============================================================================
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusIndicatorMapCustom =  {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 " 显示行号
-" let NERDTreeShowLineNumbers=1
+ let NERDTreeShowLineNumbers=1
 " 设置宽度
 let NERDTreeWinSize=31
 " 自动打开 nerdtree
@@ -250,7 +266,7 @@ let g:godef_split=2
 "==============================================================================
 "  nerdtree-git-plugin 插件
 "==============================================================================
-let g:NERDTreeIndicatorMapCustom = {
+"let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -263,7 +279,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-let g:NERDTreeShowIgnoredStatus = 1
+"let g:NERDTreeShowIgnoredStatus = 1
 
 
 
