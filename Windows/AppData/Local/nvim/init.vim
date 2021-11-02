@@ -5,7 +5,7 @@ set encoding=utf-8
 set ruler " 光标信息
 set hlsearch " 高亮显示搜索
 set incsearch " 边搜索边高亮
-set ignorecase " 忽悠大小写
+set ignorecase " 忽略大小写
 set cursorline " 突出当前显示行
 
 set ts=4 " tab 占4个字符宽度 
