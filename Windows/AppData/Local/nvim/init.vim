@@ -60,6 +60,7 @@ call plug#begin('~/.vim/plugged')
 
 " vim 状态栏
 Plug 'vim-airline/vim-airline'
+Plug 'github/copilot.vim'
 Plug 'vim-airline/vim-airline-themes'
 
 " 左侧导航目录
