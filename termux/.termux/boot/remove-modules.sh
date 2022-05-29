@@ -1,1 +1,1 @@
-adb wait-for-device shell magisk --remove-modules
+#adb wait-for-device shell magisk --remove-modules
