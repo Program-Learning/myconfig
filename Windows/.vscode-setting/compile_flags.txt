@@ -1,0 +1,4 @@
+-xc
+-std=c11
+-Wall
+-IC:/Users/Mayuri/scoop/apps/msys2/current/mingw64/include

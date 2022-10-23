@@ -1,0 +1,73 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "process",
+            "label": "clangBuild_C",
+            "command": "C:/Users/Mayuri/scoop/apps/msys2/current/mingw64/bin/clang.exe",
+            "args": [
+                "-glldb",
+                "-std=c11",
+                // "${fileBasenameNoExtension}*",
+                "${fileBasenameNoExtension}.c",
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": {
+                "owner": "lldb",
+                "fileLocation": [
+                    "relative",
+                    "${fileDirname}"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^(ld.lld:.*)$",
+                        "message": 1
+                    },
+                    {
+                        "regexp": ">>> referenced by (.*):(\\d+)",
+                        "file": 1,
+                        "line": 2
+                    }
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "process",
+            "label": "clangBuild_C++",
+            "command": "C:/Users/Mayuri/scoop/apps/msys2/current/mingw64/bin/clang++.exe",
+            "args": [
+                "-glldb",
+                "-std=c++11",
+                "${fileBasename}",
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}.exe",
+                "-IC:/Users/Mayuri/scoop/apps/msys2/current/mingw64/include/"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": {
+                "owner": "lldb",
+                "fileLocation": [
+                    "relative",
+                    "${fileDirname}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*\\.cpp):(\\d+):(\\d+): (.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "message": 4
+                }
+            }
+        }
+    ]
+}

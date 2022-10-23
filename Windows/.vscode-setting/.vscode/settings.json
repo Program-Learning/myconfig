@@ -1,0 +1,45 @@
+{
+  "terminal.integrated.env.windows": {
+    "CHERE_INVOKING": "1"
+  },
+  "editor.minimap.enabled": true,
+  "[cpp]": {
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    }
+  },
+  "[c]": {
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    }
+  },
+  "files.associations": {
+    "cmath": "c",
+    "*.tcc": "c",
+    "stdio.h": "c"
+  },
+  "clangd.arguments": [
+    "--query-driver=C:/Users/Mayuri/scoop/apps/msys2/current/mingw64/bin/clang.exe",
+    "--completion-style=detailed",
+    "--header-insertion=never",
+    "--clang-tidy",
+  ],
+  "clangd.fallbackFlags": [
+    "-IC:/Users/Mayuri/scoop/apps/msys2/current/mingw64/include/"
+  ],
+  "clangd.serverCompletionRanking": true,
+  "clang.executable": "C:/Users/Mayuri/scoop/apps/msys2/current/mingw64/bin/clang.exe",
+  "lldb.consoleMode": "evaluate", //调试控制台模式为终端命令模式，可调用lldb命令
+  "lldb.launch.sourceLanguages": [ //调试语言
+    "cpp",
+    "c"
+  ],
+  "lldb.launch.expressions": "native", //使用原生表达式
+  "lldb.displayFormat": "auto",
+  "lldb.dereferencePointers": false,
+  "lldb.showDisassembly": "auto",
+}
