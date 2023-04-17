@@ -1,0 +1,20 @@
+msys2:
+1.
+pacman -S --needed mingw-w64-x86_64-{binutils,gcc,gdb,make,clang}
+pacman -S --needed mingw-w64-x86_64-clang-tools-extra
+[clcs]
+pacman -S --needed mingw-w64-x86_64-{clang,clang-tools-extra,polly,cmake,jq,ninja,ncurses,rapidjson}
+# 然后下载ccls并编译
+cd ccls
+cmake -H. -BRelease -G Ninja -DCMAKE_CXX_FLAGS=-D__STDC_FORMAT_MACROS
+ninja -C Release
+[manjaro]
+sudo pacman -S --needed gcc clang
+sudo pacman -S --needed ccls
+2.
+scoop install msys2
+msys2
+pacman -S mingw-w64-x86_64-toolchain
+MinGW
+xmake
+clangd
