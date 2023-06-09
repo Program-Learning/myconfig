@@ -1,0 +1,11 @@
+termux-change-repo
+pkg upgrade -y
+termux-change-repo
+pkg install vim wget curl git which tmux \
+termux-api tsu \
+openssh gnupg \
+rust golang clang python \
+cmake make binutils \
+proot proot-distro runc docker \
+ffmpeg sqlite proxychains-ng android-tools \
+-y
