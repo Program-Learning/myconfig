@@ -5,7 +5,7 @@ pkg install tur-repo x11-repo root-repo -y
 pkg install vim wget curl git which tmux \
 termux-api tsu \
 openssh gnupg \
-rust golang clang python \
+rust golang clang python python-pip \
 cmake make binutils \
 proot proot-distro runc docker \
 ffmpeg sqlite proxychains-ng android-tools \
