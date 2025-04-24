@@ -1,1 +1,1 @@
-zerotier restart
+zerotier.sh restart
